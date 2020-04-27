@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-=======
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { Link } from "react-router-dom";
->>>>>>> db3f3cc14bd03a89c13e26acf6afe040fc0a8986
 
 import axiosWithAuth from "./axiosWithAuth";
 
-const Auth = (props) => {
-  const [user, setUser] = useState({ username: "", password: "" });
+const Register = () => {
+  const [user, setUser] = useState({
+    username: "",
+    password1: "",
+    password2: "",
+  });
 
   const handleChanges = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/login/", user)
+      .post("/registration/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
       })
-      .catch((err) => console.log("Login error: ", err));
+      .catch((err) => console.log("Registration error: ", err));
   };
 
   return (
@@ -43,17 +43,27 @@ const Auth = (props) => {
           <Label for="password">Password</Label>
           <Input
             type="password"
-            name="password"
-            id="password"
+            name="password1"
+            id="password1"
             placeholder="Password"
             onChange={handleChanges}
           />
         </FormGroup>
-        <Button onClick={handleLogin}>Log In</Button>
+        <FormGroup>
+          <Label for="password">Verify Password</Label>
+          <Input
+            type="password"
+            name="password2"
+            id="password2"
+            placeholder="Verify Password"
+            onChange={handleChanges}
+          />
+        </FormGroup>
+        <Button onClick={handleRegister}>Register Account</Button>
       </Form>
-      <Link to="/register">New user? Sign up!</Link>
+      <Link to="/">Returning user? Log in</Link>
     </div>
   );
 };
 
-export default Auth;
+export default Register;
