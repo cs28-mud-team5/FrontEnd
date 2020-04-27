@@ -3,12 +3,14 @@ import { Route, Switch } from "react-router-dom";
 
 //Components
 import Auth from "./components/Auth";
+import Register from "./components/Register";
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" component={Auth} />
+        <Route exact path="/" component={Auth} />
+        <Route path="/register" component={Register} />
       </Switch>
     </div>
   );
