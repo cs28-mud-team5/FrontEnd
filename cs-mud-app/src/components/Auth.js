@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-=======
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { Link } from "react-router-dom";
->>>>>>> db3f3cc14bd03a89c13e26acf6afe040fc0a8986
 
 import axiosWithAuth from "./axiosWithAuth";
 
