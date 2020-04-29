@@ -25,6 +25,18 @@ const Move = (props) => {
 
   return (
     <div>
+        {/* <button name="n" value={direction} onClick={handleMove}>
+            &#8657;
+        </button>
+        <button name="w" value={direction} onClick={handleMove}>
+            &#8656;
+        </button>
+        <button name="e" value={direction} onClick={handleMove}>
+            &#8658;
+        </button>
+        <button name="s" value={direction} onClick={handleMove}>
+            &#8659;
+        </button> */}
       <Form onSubmit={handleMove}>
         <FormGroup>
           <Label for="direction">Direction: (n, s, e, or w)</Label>
