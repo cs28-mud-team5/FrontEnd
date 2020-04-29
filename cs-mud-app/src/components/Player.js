@@ -1,12 +1,13 @@
 import React from "react";
+import { PlayerBox } from "./Styles";
 
 const Player = (props) => {
   return (
-    <div>
-      <h1>Name: {props.player.name}</h1>
-      <h2>Location: {props.player.title}</h2>
+    <PlayerBox>
+      <h2>Name: {props.player.name}</h2>
+      <h3>Location: {props.player.title}</h3>
       <p>{props.player.description}</p>
-    </div>
+    </PlayerBox>
   );
 };
 

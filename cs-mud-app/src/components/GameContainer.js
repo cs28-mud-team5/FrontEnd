@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import { DungeonContext } from "../contexts/DungeonContext";
 import Player from "./Player";
 import Move from "./Move";
+import Map from "./Map";
+import { GameBox, HudBox } from "./Styles";
 
 const GameContainer = () => {
   const { player, setPlayer } = useContext(DungeonContext);
@@ -18,14 +20,17 @@ const GameContainer = () => {
         .catch((err) => console.log("Error initializing: ", err));
     };
     initialize();
-  }, []);
+  }, [setPlayer]);
 
   return (
-    <div>
+    <GameBox>
       <h1>Team 5 MUD adventure</h1>
-      <Player player={player} />
-      <Move />
-    </div>
+      <Map />
+      <HudBox>
+        <Player player={player} />
+        <Move />
+      </HudBox>
+    </GameBox>
   );
 };
 
