@@ -5,7 +5,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        return localStorage.getItem("token") ? (
+        return localStorage.getItem("key") ? (
           <Component {...props} />
         ) : (
           <Redirect to="/" />

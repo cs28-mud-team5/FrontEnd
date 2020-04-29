@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import { DungeonContext } from "../contexts/DungeonContext";
 import Player from "./Player";
@@ -9,7 +9,7 @@ const GameContainer = () => {
   useEffect(() => {
     const initialize = () => {
       axiosWithAuth()
-        .get("/adv/init")
+        .get("/adv/init/")
         .then((res) => {
           setPlayer(res.data);
           console.log(res.data);
@@ -17,7 +17,7 @@ const GameContainer = () => {
         .catch((err) => console.log("Error initializing: ", err));
     };
     initialize();
-  });
+  }, []);
 
   return (
     <div>

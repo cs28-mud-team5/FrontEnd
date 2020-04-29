@@ -21,6 +21,7 @@ const Register = () => {
       .post("/registration/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
+        console.log(res);
       })
       .catch((err) => console.log("Registration error: ", err));
   };

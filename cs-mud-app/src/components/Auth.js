@@ -17,7 +17,7 @@ const Auth = (props) => {
       .post("/login/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
-        props.history.push("/game");
+        console.log(res);
       })
       .catch((err) => console.log("Login error: ", err));
   };
