@@ -5,13 +5,13 @@ import React, { useState } from "react";
 const Move = (props) => {
     const [save, setSave] = useState([])
     const [direction, setDirection] = useState("");
-    const [display, setDisplay] = useState({name: "", title: "", description: "", players: [], error_msg: ""})
+    //const [display, setDisplay] = useState({name: "", title: "", description: "", players: [], error_msg: ""})
    
 
 const handleMove = (e) => {
   e.preventDefault(); 
   setDirection(e.target.name);
-  setSave(save.push(direction));
+ // setSave(save.push(direction));
   axiosWithAuth()
     .post("/adv/move/", direction)
     .then((res) => {
