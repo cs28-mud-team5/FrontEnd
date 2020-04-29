@@ -13,7 +13,6 @@ const Move = () => {
   };
 
   useEffect(() => {
-    console.log(direction);
     if (direction.direction !== "") {
       axiosWithAuth()
         .post("/adv/move/", direction)
