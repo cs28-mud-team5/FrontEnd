@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import axios from "axios"
 import axiosWithAuth from "./axiosWithAuth";
 
 const Register = () => {
@@ -17,13 +17,13 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/registration/", user)
+    axios
+      .post("https://lambda-mud-test.herokuapp.com/api/registration/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
         console.log(res);
       })
-      .catch((err) => console.log("Registration error: ", err));
+      .catch((err) => console.log("Registration error: ", err.response));
   };
 
   return (
