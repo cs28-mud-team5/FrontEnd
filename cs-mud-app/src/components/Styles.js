@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MapBox = styled.div`
   border: solid 2px black;
   text-align: center;
-  height: 500px;
+  height: 60%;
 `;
 
 export const AuthBox = styled.div`
@@ -30,8 +30,11 @@ export const PlayerBox = styled.div`
 `;
 
 export const GameBox = styled.div`
-  text-align: center;
-  padding: 5%;
+text-align: center;
+padding: 0 30px;
+height: 95vh;
+width: 90vw;
+margin: 0 auto;
 `;
 
 export const HudBox = styled.div`
@@ -41,6 +44,7 @@ export const HudBox = styled.div`
   background-color: lightgrey;
   border: 1px solid grey;
   border-radius: 15px;
+  height: 20%;
 `;
 
 export const MoveButton = styled.button`
