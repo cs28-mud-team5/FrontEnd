@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-import axiosWithAuth from "./axiosWithAuth";
 import { BackDiv, AuthBox } from "./Styles";
+import axios from "axios";
 
 const Auth = (props) => {
   const [user, setUser] = useState({ username: "", password: "" });
@@ -13,15 +13,14 @@ const Auth = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/login/", user)
+    axios
+      .post("https://lambda-mud-test.herokuapp.com/api/login/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
         console.log(res);
+        props.history.push("/game");
       })
-      .catch((err) => console.log("Login error: ", err));
-
-    props.history.push("/game");
+      .catch((err) => console.log("Login error: ", err.response));
   };
 
   return (
