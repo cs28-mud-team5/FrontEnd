@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { DungeonContext } from "../contexts/DungeonContext";
 import axiosWithAuth from "./axiosWithAuth";
+import { ButtonsBox, MoveButton } from "./Styles";
 
 const Move = () => {
   const { player, setPlayer } = useContext(DungeonContext);
@@ -8,7 +9,6 @@ const Move = () => {
 
   const handleMove = (e) => {
     e.preventDefault();
-
     setDirection({ ...direction, [e.target.name]: e.target.value });
   };
 
@@ -25,20 +25,26 @@ const Move = () => {
   }, [direction]);
 
   return (
-    <div>
-      <button name="direction" value="n" onClick={handleMove}>
-        &#8657;
-      </button>
-      <button name="direction" value="w" onClick={handleMove}>
-        &#8656;
-      </button>
-      <button name="direction" value="e" onClick={handleMove}>
-        &#8658;
-      </button>
-      <button name="direction" value="s" onClick={handleMove}>
-        &#8659;
-      </button>
-    </div>
+    <ButtonsBox>
+      <div>
+        <MoveButton name="direction" value="n" onClick={handleMove}>
+          &#8657;
+        </MoveButton>
+      </div>
+      <div>
+        <MoveButton name="direction" value="w" onClick={handleMove}>
+          &#8656;
+        </MoveButton>
+        <MoveButton name="direction" value="e" onClick={handleMove}>
+          &#8658;
+        </MoveButton>
+      </div>
+      <div>
+        <MoveButton name="direction" value="s" onClick={handleMove}>
+          &#8659;
+        </MoveButton>
+      </div>
+    </ButtonsBox>
   );
 };
 

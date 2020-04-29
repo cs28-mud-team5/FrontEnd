@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { BackDiv, AuthBox } from "./Styles";
 
 const Register = (props) => {
   const [user, setUser] = useState({
@@ -27,43 +28,45 @@ const Register = (props) => {
   };
 
   return (
-    <div>
-      <h1>Auth Page</h1>
-      <Form>
-        <FormGroup>
-          <Label for="username">Username</Label>
-          <Input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
-            onChange={handleChanges}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password">Password</Label>
-          <Input
-            type="password"
-            name="password1"
-            id="password1"
-            placeholder="Password"
-            onChange={handleChanges}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password">Verify Password</Label>
-          <Input
-            type="password"
-            name="password2"
-            id="password2"
-            placeholder="Verify Password"
-            onChange={handleChanges}
-          />
-        </FormGroup>
-        <Button onClick={handleRegister}>Register Account</Button>
-      </Form>
+    <BackDiv>
+      <h1>Register a new account</h1>
+      <AuthBox>
+        <Form>
+          <FormGroup>
+            <Label for="username">Username</Label>
+            <Input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              onChange={handleChanges}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Password</Label>
+            <Input
+              type="password"
+              name="password1"
+              id="password1"
+              placeholder="Password"
+              onChange={handleChanges}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Verify Pass</Label>
+            <Input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="Verify Password"
+              onChange={handleChanges}
+            />
+          </FormGroup>
+          <Button onClick={handleRegister}>Register Account</Button>
+        </Form>
+      </AuthBox>
       <Link to="/">Returning user? Log in</Link>
-    </div>
+    </BackDiv>
   );
 };
 
