@@ -20,6 +20,8 @@ const Auth = (props) => {
         console.log(res);
       })
       .catch((err) => console.log("Login error: ", err));
+
+    props.history.push("/game");
   };
 
   return (

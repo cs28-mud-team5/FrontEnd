@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-import axios from "axios"
-import axiosWithAuth from "./axiosWithAuth";
+import axios from "axios";
 
-const Register = () => {
+const Register = (props) => {
   const [user, setUser] = useState({
     username: "",
     password1: "",
@@ -22,6 +21,7 @@ const Register = () => {
       .then((res) => {
         localStorage.setItem("key", res.data.key);
         console.log(res);
+        props.history.push("/game");
       })
       .catch((err) => console.log("Registration error: ", err.response));
   };
