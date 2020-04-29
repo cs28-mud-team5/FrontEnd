@@ -16,6 +16,7 @@ const App = () => {
     title: "",
     description: "",
     players: [],
+    error_msg: "",
   });
 
   return (

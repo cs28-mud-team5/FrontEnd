@@ -1,40 +1,35 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DungeonContext } from "../contexts/DungeonContext";
+import axiosWithAuth from "./axiosWithAuth";
 
 const Move = (props) => {
-  const [direction, setDirection] = useState("");
-  const [display, setDisplay] = useState({
-    name: "",
-    title: "",
-    description: "",
-    players: [],
-    error_msg: "",
-  });
+  const { player, setPlayer } = useContext(DungeonContext);
+  const [direction, setDirection] = useState({ direction: "" });
 
   const handleMove = (e) => {
     e.preventDefault();
-    setDirection(e.target.name);
+    setDirection({ ...direction, direction: e.target.value });
     axiosWithAuth()
       .post("/adv/move/", direction)
       .then((res) => {
-        setDisplay(res);
+        setPlayer(res);
       })
-      .catch((err) => console.log(""));
+      .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <button name="n" onClick={handleMove}>
-        \u21D2&#8658;&rArr;%u21D2%E2%87%92
+      <button name="n" value={direction} onClick={handleMove}>
+        &#8657;
       </button>
-      <button name="w" onClick={handleMove}>
-        \u21D0&#8656;&lArr;%u21D0%E2%87%90
+      <button name="w" value={direction} onClick={handleMove}>
+        &#8656;
       </button>
-      <button name="e" onClick={handleMove}>
-        \u21D2&#8658;&rArr;%u21D2%E2%87%92
+      <button name="e" value={direction} onClick={handleMove}>
+        &#8658;
       </button>
-      <button name="s" onClick={handleMove}>
-        \u21D3&#8659;&dArr;%u21D3%E2%87%93
+      <button name="s" value={direction} onClick={handleMove}>
+        &#8659;
       </button>
     </div>
   );
