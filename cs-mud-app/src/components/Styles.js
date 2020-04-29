@@ -26,7 +26,7 @@ export const BackDiv = styled.div`
 
 export const PlayerBox = styled.div`
   text-align: center;
-  width: 500px;
+  width: 80%;
 `;
 
 export const GameBox = styled.div`
