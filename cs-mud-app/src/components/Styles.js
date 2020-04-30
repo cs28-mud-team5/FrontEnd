@@ -1,27 +1,36 @@
 import styled from "styled-components";
 
 export const MapBox = styled.div`
-  border: solid 2px black;
+  border: solid 2px white;
   text-align: center;
   height: 60%;
+  h3{
+    color: white;
+  }
 `;
 
 export const AuthBox = styled.div`
-  border: solid 1px black;
+  border: solid 1px white;
   border-radius: 15px;
   padding: 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   width: 400px;
+  background-color: white;
+
 `;
 
 export const BackDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10%;
+  padding: 10%;
   text-align: center;
+  background-color: black;
+ h1{
+      color: white;
+    }
 `;
 
 export const PlayerBox = styled.div`
@@ -35,6 +44,9 @@ padding: 0 30px;
 height: 95vh;
 width: 90vw;
 margin: 0 auto;
+h1{
+  color: white;
+}
 `;
 
 export const HudBox = styled.div`
@@ -48,12 +60,13 @@ export const HudBox = styled.div`
 `;
 
 export const MoveButton = styled.button`
-  background-color: grey;
-  padding: 15px;
-  border: 2px solid grey;
-  border-radius: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
+background-color: grey;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 25px;
 `;
 
 export const ButtonsBox = styled.div`
