@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem("key");
 
   return axios.create({
-    baseURL: "https://lambda-mud-test.herokuapp.com/api",
+    baseURL: "https://mud5.herokuapp.com/api",
     headers: {
       Authorization: `Token ${token}`,
     },

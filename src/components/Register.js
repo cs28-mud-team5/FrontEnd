@@ -18,7 +18,7 @@ const Register = (props) => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post("https://lambda-mud-test.herokuapp.com/api/registration/", user)
+      .post("https://mud5.herokuapp.com/api/registration/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
         console.log(res);

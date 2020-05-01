@@ -14,7 +14,7 @@ const Auth = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("https://lambda-mud-test.herokuapp.com/api/login/", user)
+      .post("https://mud5.herokuapp.com/api/login/", user)
       .then((res) => {
         localStorage.setItem("key", res.data.key);
         console.log(res);

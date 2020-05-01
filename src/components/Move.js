@@ -5,6 +5,9 @@ import { ButtonsBox, MoveButton } from "./Styles";
 
 const Move = () => {
   const { player, setPlayer } = useContext(DungeonContext);
+  const { currentPlayerRoom, setCurrentPlayerRoom } = useContext(
+    DungeonContext
+  );
   const [direction, setDirection] = useState({ direction: "" });
 
   const handleMove = (e) => {
@@ -22,7 +25,17 @@ const Move = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [direction]);
+    const getThePlayerRoom = () => {
+      axiosWithAuth()
+        .get("/adv/currentRoom/")
+        .then((res) => {
+          console.log(res);
+          setCurrentPlayerRoom(res.data);
+        })
+        .catch((err) => console.log(err));
+    };
+    getThePlayerRoom();
+  }, [direction, setCurrentPlayerRoom]);
 
   return (
     <ButtonsBox>

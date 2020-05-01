@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const MapBox = styled.div`
-  border: solid 2px white;
+  border: solid 2px black;
   text-align: center;
-  height: 60%;
-  h3{
-    color: white;
-  }
+  height: 600px;
+  width: 600px;
 `;
 
 export const AuthBox = styled.div`
@@ -18,7 +16,6 @@ export const AuthBox = styled.div`
   margin-bottom: 20px;
   width: 400px;
   background-color: white;
-
 `;
 
 export const BackDiv = styled.div`
@@ -27,10 +24,6 @@ export const BackDiv = styled.div`
   align-items: center;
   padding: 10%;
   text-align: center;
-  background-color: black;
- h1{
-      color: white;
-    }
 `;
 
 export const PlayerBox = styled.div`
@@ -39,14 +32,11 @@ export const PlayerBox = styled.div`
 `;
 
 export const GameBox = styled.div`
-text-align: center;
-padding: 0 30px;
-height: 95vh;
-width: 90vw;
-margin: 0 auto;
-h1{
-  color: white;
-}
+  text-align: center;
+  padding: 0 30px;
+  height: 95vh;
+  width: 90vw;
+  margin: 0 auto;
 `;
 
 export const HudBox = styled.div`
@@ -60,17 +50,22 @@ export const HudBox = styled.div`
 `;
 
 export const MoveButton = styled.button`
-background-color: grey;
-    padding: 10px;
-    border: 2px solid grey;
-    border-radius: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-    font-size: 25px;
+  background-color: grey;
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 25px;
 `;
 
 export const ButtonsBox = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+`;
+
+export const CenterMap = styled.div`
+  display: flex;
   justify-content: center;
 `;

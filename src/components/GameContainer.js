@@ -4,10 +4,13 @@ import { DungeonContext } from "../contexts/DungeonContext";
 import Player from "./Player";
 import Move from "./Move";
 import Map from "./Map";
-import { GameBox, HudBox } from "./Styles";
+import { GameBox, HudBox, CenterMap } from "./Styles";
 
 const GameContainer = () => {
   const { player, setPlayer } = useContext(DungeonContext);
+  const { currentPlayerRoom, setCurrentPlayerRoom } = useContext(
+    DungeonContext
+  );
 
   useEffect(() => {
     const initialize = () => {
@@ -19,13 +22,24 @@ const GameContainer = () => {
         })
         .catch((err) => console.log("Error initializing: ", err));
     };
+    const setTheCurrentRoom = () => {
+      axiosWithAuth()
+        .get("/adv/currentRoom")
+        .then((res) => {
+          setCurrentPlayerRoom(res.data);
+        })
+        .catch((err) => console.log(err));
+    };
     initialize();
-  }, [setPlayer]);
+    setTheCurrentRoom();
+  }, [setPlayer, setCurrentPlayerRoom]);
 
   return (
     <GameBox>
       <h1>Team 5 MUD adventure</h1>
-      <Map />
+      <CenterMap>
+        <Map />
+      </CenterMap>
       <HudBox>
         <Player player={player} />
         <Move />

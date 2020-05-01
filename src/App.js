@@ -16,12 +16,29 @@ const App = () => {
     title: "",
     description: "",
     players: [],
+    room_id: null,
     error_msg: "",
   });
 
+  const [room, setRoom] = useState([]);
+  const [rooms, setRooms] = useState([]);
+
+  const [currentPlayerRoom, setCurrentPlayerRoom] = useState(null);
+
   return (
     <div>
-      <DungeonContext.Provider value={{ player, setPlayer }}>
+      <DungeonContext.Provider
+        value={{
+          player,
+          setPlayer,
+          room,
+          setRoom,
+          rooms,
+          setRooms,
+          currentPlayerRoom,
+          setCurrentPlayerRoom,
+        }}
+      >
         <Switch>
           <Route exact path="/" component={Auth} />
           <Route path="/register" component={Register} />
